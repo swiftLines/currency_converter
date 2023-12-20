@@ -6,5 +6,6 @@ BASE_URL = f'https://api.freecurrencyapi.com/v1/latest?apikey={API_KEY}'
 CURRENCIES = ['USD', 'CAD', 'EUR', 'AUD', 'CNY']
 
 def convert_currency(base):
-  url = f'{BASE_URL}&base_currency={base}&currencies={}'
+  currencies = ','.join(CURRENCIES)
+  url = f'{BASE_URL}&base_currency={base}&currencies={currencies}'
 
