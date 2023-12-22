@@ -12,10 +12,12 @@ def convert_currency(base):
   try:
     response = requests.get(url)
     data = response.json()
-    print(data)
-    return data
+    return data['data']
   except Exception as e:
     print(e)
     return None
   
-convert_currency('CAD')
+data = convert_currency('CAD')
+del data['CAD']
+for ticker, value in data.items():
+  print(f'{ticker}: {value}')
